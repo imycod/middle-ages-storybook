@@ -1,8 +1,27 @@
 <script setup lang="ts">
+import musicSrc from '@/assets/song/act1.mp3'
+function autoPlayMusic() {
+  // 尝试自动播放音频
+  const audio = audioPlayer.value;
+  if (audio) {
+    audio.play().catch(() => {
+      console.log('由于浏览器限制，需要您先进行一次交互操作才能播放音乐');
+    });
+  }
+}
+
+const audioPlayer = ref<HTMLAudioElement>();
+onMounted(() => {
+  audioPlayer.value.addEventListener('ended', autoPlayMusic);
+  autoPlayMusic()
+});
+onUnmounted(() => {
+  audioPlayer.value.removeEventListener('ended', autoPlayMusic);
+});
 </script>
 
 <template>
-  <div class="bg-cover h-[100vh] bg-center overflow-hidden">
+  <div class="bg-cover h-[100vh] bg-center overflow-hidden" @click="autoPlayMusic">
     <div class="h-[100px] w-[100vw] px-20 opacity-[.8] flex items-center text-center"
          style="background: #304660;">
       <div class="w-full flex justify-between items-center">
@@ -35,6 +54,7 @@
       </div>
     </div>
   </div>
+  <audio ref="audioPlayer" v-show="false" :src="musicSrc" autoplay loop controls></audio>
 </template>
 
 <style scoped lang="scss">
@@ -54,15 +74,19 @@
 .center {
   span {
     font-family: 'pmzd';
+    letter-spacing: .3em;
   }
 }
 
-.contain{
-  .title{
+.contain {
+  .title {
     font-size: 80px;
+    font-family: 'stxingka';
     color: #545454;
   }
-  .subtitle{
+
+  .subtitle {
+    font-family: 'stxingka';
     font-size: 50px;
     color: #545454;
   }
