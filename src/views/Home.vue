@@ -1,5 +1,9 @@
 <script setup lang="ts">
+import ProgressiveImage from "@/components/ProgressiveImage.vue"
 import musicSrc from '@/assets/song/act1.mp3'
+import originUrl from "@/assets/img/home-bg.png"
+import placeholderUrl from "@/assets/img/home-bg35k.jpg"
+
 function autoPlayMusic() {
   // 尝试自动播放音频
   const audio = audioPlayer.value;
@@ -21,7 +25,8 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="bg-cover h-[100vh] bg-center overflow-hidden" @click="autoPlayMusic">
+  <div class="home h-[100vh] bg-center overflow-hidden" @click="autoPlayMusic">
+    <ProgressiveImage class="progress" :origin="originUrl" :placeholder="placeholderUrl"></ProgressiveImage>
     <div class="h-[100px] w-[100vw] px-20 opacity-[.8] flex items-center text-center"
          style="background: #304660;">
       <div class="w-full flex justify-between items-center">
@@ -58,37 +63,34 @@ onUnmounted(() => {
 </template>
 
 <style scoped lang="scss">
+.home {
+  position: relative;
 
-.bg-cover {
-  background: url("@/assets/img/home-bg.png") no-repeat;
-  background-size: cover;
-}
-
-@media (min-width: 768px) {
-  .bg-cover {
-    background: url("@/assets/img/home-bg.png") no-repeat;
-    background-size: 100% 100%;
-  }
-}
-
-.center {
-  span {
-    font-family: 'pmzd';
-    letter-spacing: .3em;
-  }
-}
-
-.contain {
-  .title {
-    font-size: 80px;
-    font-family: 'stxingka';
-    color: #545454;
+  .progress {
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
-  .subtitle {
-    font-family: 'stxingka';
-    font-size: 50px;
-    color: #545454;
+  .center {
+    span {
+      font-family: 'pmzd';
+      letter-spacing: .3em;
+    }
+  }
+
+  .contain {
+    .title {
+      font-size: 80px;
+      font-family: 'stxingka';
+      color: #545454;
+    }
+
+    .subtitle {
+      font-family: 'stxingka';
+      font-size: 50px;
+      color: #545454;
+    }
   }
 }
 </style>
