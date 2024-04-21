@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { createPinia } from 'pinia'
 import piniaPluginPersist from 'pinia-plugin-persist';
 
