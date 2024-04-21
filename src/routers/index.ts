@@ -1,5 +1,6 @@
+// @ts-nocheck
 import {createRouter, createWebHashHistory} from "vue-router"
-import {useUserInfo} from "@/stores/userInfo.ts";
+// import {useUserInfo} from "@/stores/userInfo.ts";
 
 const routes = [
 	{

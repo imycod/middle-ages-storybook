@@ -1,10 +1,13 @@
 <script setup lang="ts">
+// @ts-nocheck
 import ProgressiveImage from "@/components/ProgressiveImage.vue"
 import musicSrc from '@/assets/song/act1.mp3'
 import originUrl from "@/assets/img/home-bg.png"
 import placeholderUrl from "@/assets/img/home-bg35k.jpg"
+import Phase1 from "@/components/Phase1.vue"
 
 function autoPlayMusic() {
+  return
   // 尝试自动播放音频
   const audio = audioPlayer.value;
   if (audio) {
@@ -16,11 +19,11 @@ function autoPlayMusic() {
 
 const audioPlayer = ref<HTMLAudioElement>();
 onMounted(() => {
-  audioPlayer.value.addEventListener('ended', autoPlayMusic);
-  autoPlayMusic()
+  // audioPlayer.value.addEventListener('ended', autoPlayMusic);
+  // autoPlayMusic()
 });
 onUnmounted(() => {
-  audioPlayer.value.removeEventListener('ended', autoPlayMusic);
+  // audioPlayer.value.removeEventListener('ended', autoPlayMusic);
 });
 </script>
 
@@ -52,14 +55,15 @@ onUnmounted(() => {
         </div>
       </div>
     </div>
-    <div class="contain h-full">
+    <div class="contain">
       <div class="m-auto text-center mt-36 w-[600px]">
         <h1 class="title w-full">猎龙曲</h1>
         <h4 class="subtitle w-full">原创长篇奇幻小说及设定集</h4>
       </div>
     </div>
   </div>
-  <audio ref="audioPlayer" v-show="false" :src="musicSrc" autoplay loop controls></audio>
+  <Phase1></Phase1>
+<!--  <audio ref="audioPlayer" v-show="false" :src="musicSrc" autoplay loop controls></audio>-->
 </template>
 
 <style scoped lang="scss">
@@ -84,6 +88,7 @@ onUnmounted(() => {
     height: 100%;
     left: 50%;
     transform: translateX(-50%);
+
     .title {
       font-size: 80px;
       font-family: 'stxingka';
