@@ -88,7 +88,7 @@ onMounted(() => {
             <dragon></dragon>
           </div>
         </div>
-        <div class="bottom">
+        <div class="bottom mt-5">
           <h1 class="text-white text-center space-x-10">
             <span>C</span><span>O</span><span>N</span><span>T</span><span>E</span><span>N</span><span>T</span>
           </h1>
