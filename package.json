@@ -19,8 +19,8 @@
     "pinia": "^2.1.7",
     "pinia-plugin-persist": "^1.0.0",
     "pixi.js": "^8.0.1",
-    "three": "^0.162.0",
-    "troisjs": "^0.3.4",
+    "three": "^0.134.0",
+    "troisjs": "^0.3.0",
     "vue": "^3.4.19",
     "vue-router": "^4.3.0"
   },

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import dragon from "./dragon.vue"
 import {onMounted} from "vue";
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -52,26 +53,26 @@ const volume = [
 
 onMounted(() => {
   // Create a ScrollTrigger to trigger the animation
-  const element = document.querySelector('.bottom')
-  ScrollTrigger.create({
-    trigger: "#phase1-container",
-    start: "top center",
-    end: "bottom center",
-    onEnterBack: () => {
-      gsap.set(element, {className: 'bottom hero-anime'});
-    },
-    animation: gsap.set(element, {className: 'bottom'}),
-  });
+  // const element = document.querySelector('.bottom')
+  // ScrollTrigger.create({
+  //   trigger: "#phase1-container",
+  //   start: "top center",
+  //   end: "bottom center",
+  //   onEnterBack: () => {
+  //     gsap.set(element, {className: 'bottom hero-anime'});
+  //   },
+  //   animation: gsap.set(element, {className: 'bottom'}),
+  // });
 })
 </script>
 
 <template>
   <div id="phase1-container" class="phase1-container">
     <div class="mask"></div>
-    <div class="content-area flex pl-20 pt-40 pr-20 justify-between h-[90vh]">
+    <div class="content-area flex pl-24 pt-40 pr-24 justify-between h-[90vh]">
       <div class="left">
         <ul>
-          <li class="volume py-5" v-for="vol in volume" :index="vol.index">
+          <li class="volume py-2" v-for="vol in volume" :index="vol.index">
             <div>
               <span class="vol text-white font-bold text-3xl">{{ vol.title }}</span>
               <span class="no text-red-800 font-bold text-3xl">{{ vol.vol_no }}</span>
@@ -81,9 +82,13 @@ onMounted(() => {
         </ul>
       </div>
       <div class="center flex-col flex-1">
-        <div class="top h-[95%]"></div>
-        <div class="bottom hero-anime">
-          <h1 class="text-white text-center space-x-10 text-4xl">
+        <div id="dragon" class="top flex justify-center h-[90%]">
+          <div class="w-[900px] h-[500px]">
+            <dragon></dragon>
+          </div>
+        </div>
+        <div class="bottom">
+          <h1 class="text-white text-center space-x-10">
             <span>C</span><span>O</span><span>N</span><span>T</span><span>E</span><span>N</span><span>T</span>
           </h1>
         </div>
@@ -143,7 +148,6 @@ onMounted(() => {
 
       .bottom.hero-anime {
         h1 {
-          font-family: '宋体';
           span {
             &:nth-child(1) {
               opacity: 0;
@@ -184,7 +188,12 @@ onMounted(() => {
       }
 
       .bottom {
+        font-family: '宋体';
+        font-weight: bolder;
+
         h1 {
+          font-size: 70px;
+
           span {
             &:nth-child(1) {
               transition-delay: 1000ms;

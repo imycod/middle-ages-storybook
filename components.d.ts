@@ -7,6 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    Dragon: typeof import('./src/components/dragon.vue')['default']
     Phase: typeof import('./src/components/Phase.vue')['default']
     Phase1: typeof import('./src/components/Phase1.vue')['default']
     ProgressiveImage: typeof import('./src/components/ProgressiveImage.vue')['default']
