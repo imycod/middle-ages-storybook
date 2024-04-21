@@ -72,17 +72,18 @@ onMounted(() => {
     <div class="content-area flex pl-24 pt-40 pr-24 justify-between h-[90vh]">
       <div class="left">
         <ul>
-          <li class="volume py-2" v-for="vol in volume" :index="vol.index">
+          <li class="volume relative mb-8 hover:border-r-2 hover:cursor-pointer" v-for="vol in volume" :index="vol.index">
             <div>
               <span class="vol text-white font-bold text-3xl">{{ vol.title }}</span>
               <span class="no text-red-800 font-bold text-3xl">{{ vol.vol_no }}</span>
             </div>
-            <div class="vol-desc text-white mt-1">{{ vol.vol_desc }}</div>
+            <div class="vol-desc text-white mt-1" :title="vol.vol_desc">{{ vol.vol_desc }}</div>
+            <img class="absolute -left-2 top-2 w-[90%] h-[100%]" src="@/assets/img/c-doc.png" alt="">
           </li>
         </ul>
       </div>
       <div class="center flex-col flex-1">
-        <div id="dragon" class="top flex justify-center h-[90%]">
+        <div id="dragon" class="top flex justify-center">
           <div class="w-[900px] h-[500px]">
             <dragon></dragon>
           </div>
@@ -131,7 +132,26 @@ onMounted(() => {
       width: 20%;
       font-family: '宋体';
 
-      .no {
+      .volume {
+        //&:before{
+        //  content:'';
+        //  display: inline-block;
+        //  position: absolute;
+        //  width: 100%;
+        //  height: 100%;
+        //  background: url('@/assets/img/c-doc.png') no-repeat;
+        //}
+        .no {
+        }
+
+        .vol-desc {
+          // 单行打点
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+        }
       }
     }
 
