@@ -30,7 +30,7 @@ onUnmounted(() => {
 <template>
   <div class="home h-[100vh] bg-center overflow-hidden" @click="autoPlayMusic">
     <ProgressiveImage class="progress" :origin="originUrl" :placeholder="placeholderUrl"></ProgressiveImage>
-    <div class="h-[100px] w-[100vw] px-20 opacity-[.8] flex items-center text-center"
+    <div class="h-[100px] w-[100vw] px-20 opacity-[.8] flex items-center text-center fixed z-20 p-0 l-0"
          style="background: #304660;">
       <div class="w-full flex justify-between items-center">
         <img class="left w-[60px]" src="@/assets/img/logo.png" alt="">
@@ -55,15 +55,19 @@ onUnmounted(() => {
         </div>
       </div>
     </div>
-    <div class="contain">
-      <div class="m-auto text-center mt-36 w-[600px]">
-        <h1 class="title w-full">猎龙曲</h1>
-        <h4 class="subtitle w-full">原创长篇奇幻小说及设定集</h4>
+    <div class="screen-container">
+      <div class="screen1 w-full">
+        <div class="m-auto text-center pt-80 w-[600px]">
+          <h1 class="title w-full">猎龙曲</h1>
+          <h4 class="subtitle w-full">原创长篇奇幻小说及设定集</h4>
+        </div>
+      </div>
+      <div class="screen2 h-full">
+        <Phase1></Phase1>
       </div>
     </div>
   </div>
-  <Phase1></Phase1>
-<!--  <audio ref="audioPlayer" v-show="false" :src="musicSrc" autoplay loop controls></audio>-->
+  <!--  <audio ref="audioPlayer" v-show="false" :src="musicSrc" autoplay loop controls></audio>-->
 </template>
 
 <style scoped lang="scss">
@@ -83,23 +87,33 @@ onUnmounted(() => {
     }
   }
 
-  .contain {
-    position: absolute;
+  .screen-container {
+    position: relative;
+    width: 100%;
     height: 100%;
-    left: 50%;
-    transform: translateX(-50%);
+    overflow-y: scroll;
 
-    .title {
-      font-size: 80px;
-      font-family: 'stxingka';
-      color: #545454;
+    .screen1 {
+      height: 0px;
+
+      .title {
+        font-size: 80px;
+        font-family: 'stxingka';
+        color: #545454;
+      }
+
+      .subtitle {
+        font-family: 'stxingka';
+        font-size: 50px;
+        color: #545454;
+      }
     }
 
-    .subtitle {
-      font-family: 'stxingka';
-      font-size: 50px;
-      color: #545454;
+    .screen2 {
+      //position: absolute;
+      //border: 1px solid red;
     }
   }
+
 }
 </style>

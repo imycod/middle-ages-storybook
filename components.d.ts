@@ -7,29 +7,10 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    ElButton: typeof import('element-plus/es')['ElButton']
-    ElDialog: typeof import('element-plus/es')['ElDialog']
-    ElDivider: typeof import('element-plus/es')['ElDivider']
-    ElIcon: typeof import('element-plus/es')['ElIcon']
-    ElMenu: typeof import('element-plus/es')['ElMenu']
-    ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
-    ElMenuItemGroup: typeof import('element-plus/es')['ElMenuItemGroup']
-    ElPopover: typeof import('element-plus/es')['ElPopover']
-    ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
-    ElTooltip: typeof import('element-plus/es')['ElTooltip']
-    FloatMenuItemPanel: typeof import('./src/components/origin-menu-side/float-menu-item-panel.vue')['default']
-    HomePhase1: typeof import('./src/components/HomePhase1.vue')['default']
-    MenuItem: typeof import('./src/components/menu/src/menu-item.vue')['default']
-    OriginMenuSide: typeof import('./src/components/origin-menu-side/index.vue')['default']
     Phase: typeof import('./src/components/Phase.vue')['default']
     Phase1: typeof import('./src/components/Phase1.vue')['default']
     ProgressiveImage: typeof import('./src/components/ProgressiveImage.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    SidenavItem: typeof import('./src/components/origin-menu-side/sidenav-item.vue')['default']
-    SubMenuItem: typeof import('./src/components/menu/src/sub-menu-item.vue')['default']
-  }
-  export interface ComponentCustomProperties {
-    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }
